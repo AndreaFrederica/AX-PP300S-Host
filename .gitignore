@@ -1,0 +1,12 @@
+.pixi
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+node_modules
+dist
+build
+*.log
+.DS_Store
+.env

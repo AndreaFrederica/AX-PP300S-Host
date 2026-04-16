@@ -1,0 +1,22 @@
+[workspace]
+name = "ax-pp300-host"
+version = "0.1.0"
+description = "AX PP300 Host with FastAPI backend and Quasar frontend"
+channels = ["conda-forge"]
+platforms = ["win-64"]
+
+[dependencies]
+python = ">=3.12"
+nodejs = ">=22"
+pnpm = ">=10"
+
+[pypi-dependencies]
+ax-pp300-host = { path = "backend", editable = true }
+pytest = ">=9.0.3, <10"
+httpx = ">=0.28.1, <0.29"
+
+[tasks]
+dev-backend = "uvicorn ax_pp300.main:app --host 0.0.0.0 --port 18000 --reload"
+dev-frontend = { cmd = "pnpm dev", cwd = "frontend" }
+build-frontend = { cmd = "pnpm quasar build", cwd = "frontend" }
+install-frontend = { cmd = "pnpm install", cwd = "frontend" }
